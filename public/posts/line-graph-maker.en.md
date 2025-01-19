@@ -1,11 +1,12 @@
-## [Free Online Line Graph Maker AI](https://graph-maker.online/)
-
-Discover our free online line graph maker—a user-friendly tool perfect for students, educators, and professionals. Easily visualize data trends with customizable graphs,enhance your presentations and reports with professional charts in minutes. Try it now—no sign-up required!
+---
+title: "Free Online Line Graph Maker AI"
+desc: "Discover our free online line graph maker—a user-friendly tool perfect for students, educators, and professionals. Easily visualize data trends with customizable graphs,enhance your presentations and reports with professional charts in minutes. Try it now—no sign-up required!"
+---
 
 ### What Is a Line Chart?  
 A line chart is a graphical representation that links data points using a continuous line, showcasing how a variable evolves over time or through sequential categories. Typically, the x-axis represents time or a sequential order, while the y-axis indicates the corresponding data values. Line charts are particularly effective for illustrating trends and changes over continuous periods, enabling viewers to quickly discern upward, downward, or cyclical movements in the data.
 
-![Line Graph Maker](https://graph-maker.online/images/Line-Graph-Maker.jpg)
+![Line Graph Maker](/images/Line-Graph-Maker.jpg)
 
 ### When to Use a Line Chart  
 Line graphs are most suitable for datasets where time or order is a key factor. Below are some practical use cases:  
