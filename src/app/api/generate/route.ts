@@ -36,7 +36,7 @@ export async function GET(request: Request) {
 
   const user = await main();
 
-  insertResume(name as string,user as string);
+  await insertResume(name as string,user as string);
 
   console.log(user);
 
