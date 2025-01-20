@@ -9,9 +9,9 @@ const openai = new OpenAI({
     apiKey: 'sk-a7478dd7c01c42b39ba7d0ca208b8baa'
 });
 
-async function main() {
+async function main(name:string) {
 const completion = await openai.chat.completions.create({
-messages: [{ role: "system", content: "输出雷军的简历，输出格式为json" }],
+messages: [{ role: "system", content: "输出"+name+"的简历，输出格式为json" }],
 model: "deepseek-chat",
 });
 //console.log(completion.choices[0].message.content);
@@ -34,7 +34,7 @@ export async function GET(request: Request) {
     });
   }
 
-  const user = await main();
+  const user = await main(name);
 
   await insertResume(name as string,user as string);
 
@@ -45,7 +45,3 @@ export async function GET(request: Request) {
     headers: { 'Content-Type': 'application/json' },
   });
 }
-
-
-
-main();
