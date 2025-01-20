@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   const url = new URL(request.url);
   const email = url.searchParams.get('email'); // 从 URL 查询参数获取 'name'
 
-  console.log(email);
+  console.log(`[LOGGING FROM getUser]`);
 
 // 假设 getUserById 是一个异步函数，返回一个 Promise
 
