@@ -3,11 +3,13 @@ import { Profile, WorkExperience, Education, Project } from '@/types/profile';
 import {parseProfileData} from "@/lib/utils";
 import type { Locale } from '@/i18n/config';
 import React, { useState,useEffect } from'react'
+import { Resume } from "@/types/resume";
+
 
 export function ResumeCard({params
   }: {params: { id: string, lang: Locale } 
   }) {
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState<Resume | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
