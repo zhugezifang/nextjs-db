@@ -54,7 +54,7 @@ export function BarGraph({
           <div className="bg-gray-800 rounded-lg p-4 mb-4">
               <div className="flex items-center mb-4">
                   <div>
-                      <h2 className="text-xl font-bold">{result.likes}</h2>
+                      <h2 className="text-xl font-bold">{result}</h2>
                   </div>
               </div>
     </div>
