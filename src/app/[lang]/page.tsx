@@ -1,14 +1,21 @@
+export const runtime = 'edge';
+
+import {BarGraph} from "@/components/BarGraph"
 import {LineGraph} from "@/components/LineGraph"
+
 import type { Locale } from '@/i18n/config'
 import { getPost } from "@/lib/getPost";
-
-export const runtime = 'edge'
+import { useState } from 'react';
+import { Profile, WorkExperience, Education, Project } from '@/types/profile'
 
 export default async function Home({
-  params: { lang }
+  params
 }: {
   params: { lang: Locale }
 }) {
+
+  
+
   /*const post = await getPost('line-graph-maker', lang) as unknown as { 
     title: string; 
     desc: string;
@@ -27,8 +34,13 @@ export default async function Home({
       
     </main>
 
-    <LineGraph />
-    {/*
+     <LineGraph params={params}/> 
+    
+     {/*
+     <div className="bg-gray-800 rounded-lg p-4 text-center">
+              <p className="text-gray-400 mb-2">Estimated earnings per Video</p>
+              <p className="text-3xl text-white font-bold">{result.earnings}</p>
+          </div>
     <section className="bg-white py-2 my-10 px-4 mx-auto max-w-5xl sm:px-6 lg:px-8">
       <article className="prose prose-gray dark:prose-invert mx-auto">
         <div className="mt-4" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />

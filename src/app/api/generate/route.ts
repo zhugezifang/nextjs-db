@@ -1,47 +1,40 @@
 export const runtime = 'edge';
-import OpenAI from "openai";
-import {insertResume} from "@/servers/resume";
 
-//api服务  api/getUser?name=xiaoqiu2017wy@gmai.com
+import {insertResume,findResumeByName} from "@/servers/resume";
+import {chat} from "@/lib/deepSeek";
+import {parseProfileData} from "@/lib/utils";
+import { revalidatePath } from 'next/cache'
 
-const openai = new OpenAI({
-    baseURL: 'https://api.deepseek.com',
-    apiKey: 'sk-a7478dd7c01c42b39ba7d0ca208b8baa'
-});
 
-async function main(name:string) {
-const completion = await openai.chat.completions.create({
-messages: [{ role: "system", content: "输出"+name+"的简历，输出格式为json" }],
-model: "deepseek-chat",
-});
-//console.log(completion.choices[0].message.content);
-return completion.choices[0].message.content;
-}
+import { permanentRedirect } from "next/navigation";
 
-export async function GET(request: Request) {
-  // 获取 URL 中的查询参数
-  const url = new URL(request.url);
-  const name = url.searchParams.get('name'); // 从 URL 查询参数获取 'name'
-
+export async function POST(request: Request) {
+  const body = await request.json();
+  const name = body.name;
+  const lang = body.lang;
+  
   console.log(name);
+  const resume = await findResumeByName(name);
+  //console.log(resume);
+  if(resume){
+    console.log("resume exist");
+    revalidatePath('/resume') // Update cached posts
+    permanentRedirect(`/resume/${resume.id}`) // Navigate to the new post page
 
-// 假设 getUserById 是一个异步函数，返回一个 Promise
-
-  if (!name) {
-    return new Response(JSON.stringify({ error: 'name is required' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+  }else{
+  console.log("resume not exist");
+  const user = await chat(name);
+  const result= await insertResume(name as string,user as string);
+  //const data = parseProfileData(user as string);
+  revalidatePath('/resume') // Update cached posts
+  permanentRedirect(`/resume/${result.id}`) // Navigate to the new post page
+    
   }
 
-  const user = await main(name);
 
-  await insertResume(name as string,user as string);
-
-  console.log(user);
-
-  return new Response(JSON.stringify(user), {
+  /*return new Response(JSON.stringify(data), {
     status: 200,
     headers: { 'Content-Type': 'application/json' },
   });
+  */
 }
