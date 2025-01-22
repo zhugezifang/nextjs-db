@@ -79,25 +79,6 @@ export default async function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4158779929727637"
-           crossOrigin="anonymous"></script>
-      <meta name="google-site-verification" content="UuFT61A3zra1kfyVyhHqNZffLbgbBw_OdgNpWNH0TnI" />
-      <script
-                  async
-                  src={`https://www.googletagmanager.com/gtag/js?id=G-0F6RE4VBFL`}
-      />
-      <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0F6RE4VBFL');
-            `,
-          }}
-      />
-      <script async src='https://platform-api.sharethis.com/js/sharethis.js#property=6714ad2d10ca00001277ac7d&product=sop'>
-      </script> 
       </head>
       <body className={inter.className}>
         

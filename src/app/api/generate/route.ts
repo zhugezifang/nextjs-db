@@ -2,11 +2,7 @@ export const runtime = 'edge';
 
 import {insertResume,findResumeByName} from "@/servers/resume";
 import {chat} from "@/lib/deepSeek";
-import {parseProfileData} from "@/lib/utils";
-import { revalidatePath } from 'next/cache'
-
-
-import { permanentRedirect } from "next/navigation";
+import { Resume } from "@/types/resume";
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -14,27 +10,28 @@ export async function POST(request: Request) {
   const lang = body.lang;
   
   console.log(name);
+// Bug 修复：将 Resume | null 改为 Resume | undefined
   const resume = await findResumeByName(name);
-  //console.log(resume);
+    //console.log(resume);
   if(resume){
-    console.log("resume exist");
-    revalidatePath('/resume') // Update cached posts
-    permanentRedirect(`/resume/${resume.id}`) // Navigate to the new post page
-
+      console.log("resume exist");
+      return new Response(JSON.stringify(resume), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
   }else{
-  console.log("resume not exist");
-  const user = await chat(name);
-  const result= await insertResume(name as string,user as string);
-  //const data = parseProfileData(user as string);
-  revalidatePath('/resume') // Update cached posts
-  permanentRedirect(`/resume/${result.id}`) // Navigate to the new post page
-    
+      console.log("resume not exist");
+      const user = await chat(name);
+      // Bug 修复：将 const 改为 let
+      const newResume = await insertResume(name as string,user as string);
+      return new Response(JSON.stringify(newResume), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
   }
 
 
-  /*return new Response(JSON.stringify(data), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
-  });
-  */
+
+  
+  
 }
