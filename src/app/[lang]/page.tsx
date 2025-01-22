@@ -1,12 +1,8 @@
 export const runtime = 'edge';
 
-import {BarGraph} from "@/components/BarGraph"
-import {LineGraph} from "@/components/LineGraph"
+import {Form} from "@/components/Form"
 
 import type { Locale } from '@/i18n/config'
-import { getPost } from "@/lib/getPost";
-import { useState } from 'react';
-import { Profile, WorkExperience, Education, Project } from '@/types/profile'
 
 export default async function Home({
   params
@@ -34,7 +30,7 @@ export default async function Home({
       
     </main>
 
-     <LineGraph params={params}/> 
+     <Form params={params}/> 
     
      {/*
      <div className="bg-gray-800 rounded-lg p-4 text-center">

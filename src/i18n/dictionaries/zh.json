@@ -47,10 +47,6 @@
   "nav": {
     "features": "功能",
     "menu": [
-      {"name":"柱状图","href":"bar-graph-maker"},
-      {"name":"平滑曲线图","href":"smooth-line-graph-maker"},
-      {"name":"堆叠柱状图","href":"segmented-bar-graph-maker"},
-      {"name":"直方图","href":"histogram-maker"}
     ],
     "blog": "博客",
     "pricing": "价格",
@@ -83,7 +79,7 @@
     "social": "社交",
     "support": "支持",
     "company": "公司",
-    "copyright": "© 2024 Graph Maker 保留所有权利.",
+    "copyright": "© 2025 Resume AI 保留所有权利.",
     "links": {
       "features": "功能",
       "pricing": "价格",
@@ -118,7 +114,7 @@
     "keywords": ""
   },
   "common": {
-    "brand": "Graph Maker",
+    "brand": "Resume AI",
     "loading": "加载中..."
   },
   "features": {

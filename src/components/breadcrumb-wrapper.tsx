@@ -17,39 +17,7 @@ export function BreadcrumbWrapper({ lang, dict }: BreadcrumbWrapperProps) {
     return null
   }
 
-  if (pathname === `/${lang}/multiple-line-graph-maker`) {
-    return null
-  }
-
-  if (pathname === `/${lang}/smooth-line-graph-maker`) {
-    return null
-  }
-
-  if (pathname === `/${lang}/double-bar-graph-maker`) {
-    return null
-  }
-
-  if (pathname === `/${lang}/bar-graph-maker`) {
-    return null
-  }
-
-  if (pathname === `/${lang}/multi-bar-graph-maker`) {
-    return null
-  }
-
-  if (pathname === `/${lang}/triple-bar-graph-maker`) {
-    return null
-  }
-
-  if (pathname === `/${lang}/stacked-bar-graph-maker`) {
-    return null
-  }
-
-  if (pathname === `/${lang}/segmented-bar-graph-maker`) {
-    return null
-  }
-
-  if (pathname === `/${lang}/histogram-maker`) {
+  if (pathname.includes(`/${lang}/resume`)) {
     return null
   }
 
