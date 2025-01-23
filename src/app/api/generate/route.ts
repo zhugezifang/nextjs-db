@@ -15,8 +15,8 @@ export async function POST(request: Request) {
     //console.log(resume);
   if(resume){
       console.log("resume exist");
-      const profile = parseProfileData(resume.desc as string);
-      await updateResume(resume.id as number,name as string,resume.desc as string,profile.selfIntroduction,profile.profession.split("、")[0]);
+      //const profile = parseProfileData(resume.desc as string);
+      //await updateResume(resume.id as number,name as string,resume.desc as string,profile.selfIntroduction,profile.profession.split("、")[0]);
 
       return new Response(JSON.stringify(resume), {
         status: 200,
