@@ -42,8 +42,18 @@ export function ResumeCard({params
   
   return (
     <>
-    <div  className="max-w-4xl mx-auto pt-20">
+    <div  className="max-w-4xl mx-auto pt-10">
       {userData && <>
+
+        <div
+              className="mx-auto flex max-w-4xl flex-col items-center text-center py-4">
+              <h1 className="mb-4 text-4xl font-bold md:text-4xl">{userPofile?.basicInfo.name} Resume</h1>
+              <div className="mb-5 lg:mb-8">
+                <p className="text-[#7c8aaa] text-xl">{userPofile?.selfIntroduction}</p>
+              </div>
+
+        </div>
+        
         <div id="resume" className="bg-white shadow-lg rounded-lg overflow-hidden">
 
             <div className="relative bg-teal-600 p-6">

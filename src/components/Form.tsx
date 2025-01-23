@@ -47,7 +47,7 @@ export function Form({ params }: { params: { lang: Locale } }) {
   return (
     <div className="max-w-2xl mx-auto bg-white my-20 px-8 py-12 rounded-2xl shadow-xl border border-gray-100">
       <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-        {lang === 'en' ? 'Free AI Resume Builder' : 'AI简历'}
+        {lang === 'en' ? 'Free Online AI Resume Builder' : 'AI简历'}
       </h1>
 
       <div className="mb-8">
@@ -65,9 +65,9 @@ export function Form({ params }: { params: { lang: Locale } }) {
       </div>
 
       <div className="mb-10">
-        <h3 className="text-lg font-semibold text-gray-700 mb-4">
+        <span className="text-lg font-semibold text-gray-700 mb-4">
           {lang === 'en' ? 'Suggestions' : '推荐人名'}
-        </h3>
+        </span>
         <div className="flex flex-wrap gap-3">
           {suggestions.map((word) => (
             <button
