@@ -1,8 +1,8 @@
 export const runtime = 'edge';
 
-import {insertResume,findResumeByName} from "@/servers/resume";
+import {insertResume,findResumeByName, updateResume} from "@/servers/resume";
 import {chat} from "@/lib/deepSeek";
-import { Resume } from "@/types/resume";
+import { parseProfileData } from '@/lib/utils';
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -15,6 +15,9 @@ export async function POST(request: Request) {
     //console.log(resume);
   if(resume){
       console.log("resume exist");
+      const profile = parseProfileData(resume.desc as string);
+      await updateResume(resume.id as number,name as string,resume.desc as string,profile.selfIntroduction,profile.profession.split("、")[0]);
+
       return new Response(JSON.stringify(resume), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
@@ -23,7 +26,9 @@ export async function POST(request: Request) {
       console.log("resume not exist");
       const user = await chat(name);
       // Bug 修复：将 const 改为 let
-      const newResume = await insertResume(name as string,user as string);
+      const profile = parseProfileData(user as string);
+
+      const newResume = await insertResume(name as string,user as string,profile.selfIntroduction,profile.profession.split("、")[0]);
       return new Response(JSON.stringify(newResume), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
