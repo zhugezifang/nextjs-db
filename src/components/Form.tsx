@@ -14,7 +14,7 @@ export function Form({ params }: { params: { lang: Locale } }) {
   const [name, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const suggestions = ['马云', '张一鸣', '杨澜', '王冰冰', '马化腾', '李彦宏', '王健林'];
+  const suggestions = ['张一鸣', '杨澜', '王冰冰', '马化腾', '王健林', 'Elon Musk'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +47,7 @@ export function Form({ params }: { params: { lang: Locale } }) {
   return (
     <div className="max-w-2xl mx-auto bg-white my-20 px-8 py-12 rounded-2xl shadow-xl border border-gray-100">
       <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-        {lang === 'en' ? 'AI Resume' : 'AI简历'}
+        {lang === 'en' ? 'Free AI Resume Builder' : 'AI简历'}
       </h1>
 
       <div className="mb-8">
