@@ -47,7 +47,7 @@ export function Form({ params }: { params: { lang: Locale } }) {
   return (
     <div className="max-w-2xl mx-auto bg-white my-20 px-8 py-12 rounded-2xl shadow-xl border border-gray-100">
       <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-        {lang === 'en' ? 'Generate Celebrity Resume' : '生成名人简历'}
+        {lang === 'en' ? 'AI Resume' : 'AI简历'}
       </h1>
 
       <div className="mb-8">
